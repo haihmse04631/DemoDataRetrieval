@@ -1,0 +1,49 @@
+Product: Rau, Cu
+------------------------------
+Farmer: A,B,C                   Provider: D, E, F                       Shop: G, H
+
+A:  Rau: 080                    D:  Rau: 010                            G:  Rau: 030
+    Cu: 080                         Cu:  000                                Cu: 030
+
+B:  Rau: 120                    E:  Rau: 010                            H:  Rau: 000
+    Cu: 120                         Cu:  030                                Cu: 020
+
+C:  Rau: 070                    F:  Rau: 030                            
+    Cu: 070                         Cu:  000                                
+    
+----------TRANSFER-------------
+
+1. A=>D:    Rau: 20
+            Cu: 20        
+
+2. B=>D:    Rau: 30
+            Cu: 30 
+
+3. C=>E:    Rau: 30
+            Cu: 30
+
+4. D=>E:    Rau(A): 20
+            Rau(B): 10
+            Cu(B): 30        
+
+5. E=>F:    Rau: 40 : A:15 C:25
+
+6. E=>G:    Rau: 10 : A:5 B:5
+            Cu: 30  : C: 20 D:10 
+
+7. E=>H:    Rau: 10 : A:5 B:5
+
+8. F=>G:    Rau(A): 10 
+
+9. D=>G:    Rau(B): 10
+
+10. D=>H:   Cu(A): 20    
+
+----------------SUPPLY PRODUCT-----------------
+
+20 Rau A => D 20 => E 20 => E 5 => H 5
+                         => F 15 => F 5
+                                 => G 10
+
+
+
