@@ -1,20 +1,20 @@
 const IOTA = require('iota.lib.js')
+const iota = new IOTA({ provider: '10.1.41.28:4700' })
 const UTIL = require('./common_util/utility.js')
 const util = new UTIL()
-const iota = new IOTA({ provider: 'http://localhost:14700' })
-const readline = require('readline')
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
-
-// iota.api.getNodeInfo(function(error, success) {
-//     if (error) {
-//         console.error(error);
-//     } else {
-//         console.log(success);
-//     }
+// const readline = require('readline')``
+// const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
 // })
+
+iota.api.getNodeInfo(function(error, success) {
+    if (error) {
+        console.error(error);
+    } else {
+        console.log(success);
+    }
+})
 
 var seed = `VERTAWNTFULJCUNRZXPVBHQKBTSOOPPPNRBQ9AUYDRDFPVIJBIOBLNLNS9GGVUHXIJCHTCVOQQGVRY9IH`
 var seed2 = `VERTAWNTFULJCUNRZXPVBHQKBTSEOPPPNRBQ9AUYDRDFPVIJBIOBLNTNS9GGVUHXIJCHTCVOQQGVRY9IH`
@@ -73,7 +73,9 @@ function sendData(seed, tranfers){
     })
 }
 
-sendData(seed, tranfers2)
+// sendData(seed, tranfers2)
+
+
 
 
 
