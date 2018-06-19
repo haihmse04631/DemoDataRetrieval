@@ -91,35 +91,36 @@ function dataRetrieval(seed) {
     })
 }
 
-function getBundle(transaction){
-    iota.api.getBundle(transaction, function(error, data){
-        if(error){
+function getBundle(transaction) {
+    iota.api.getBundle(transaction, function (error, data) {
+        if (error) {
             console.log(error);
-        }else{
+        } else {
             console.log(data);
-            
+
         }
     })
 }
 
 
-function getAllTransfer(address){
+function getAllTransfer(address) {
     var searchObject = {
-        'addresses' : [address]
+        'addresses': [address]
     }
 
-    iota.api.findTransactionObjects(searchObject, function(error, success){
-        if(error){
+    iota.api.findTransactionObjects(searchObject, function (error, success) {
+        if (error) {
             console.log(error);
-        }else{
+        } else {
             console.log(success);
         }
     })
 }
-//dataRetrieval(address2)
-//getBundle(`JJAHMJFVHXPI9SFYXPCZNWTOOFGGQAUKCMCCHJEELLQGJFWFPONCDEXC9UIRNAJQNFGYCMRUMCAZQG999`)
-util.getAllMessageFromAddress(address)
-//getAccountData(seed)
+
+
+util.getAllMessageFromAddress(address, (messages) => {
+    console.log(messages);
+})
 
 
 
