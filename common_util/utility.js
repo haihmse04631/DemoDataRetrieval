@@ -14,20 +14,12 @@ function utility() {
  */
 
 utility.prototype.formatMessage = function (message) {
-    var index = message.length - 1;
-    var isFirstIndexOf9 = true;
-    for (let i = 0; i < message.length; i++) {
-        if (message[i] == '9') {
-            if (isFirstIndexOf9) {
-                index = i
-                isFirstIndexOf9 = false
-            }
-        } else {
-            index = message.length - 1
-            isFirstIndexOf9 = true
+    for (let i = message.length - 1; i >=0 ; i--) {
+        if(message[i] != '9'){
+            var stMessage = message.substring(0, i + 1);
+            break; 
         }
     }
-    let stMessage = message.substring(0, index)
     return stMessage
 }
 
@@ -40,20 +32,12 @@ utility.prototype.formatMessage = function (message) {
  * @returns {String} new string message
  */
 utility.prototype.formatAndDecodeMessage = function (message) {
-    var index = message.length;
-    var isFirstIndexOf9 = true;
-    for (let i = 0; i < message.length; i++) {
-        if (message[i] == '9') {
-            if (isFirstIndexOf9) {
-                index = i
-                isFirstIndexOf9 = false
-            }
-        } else {
-            index = message.length
-            isFirstIndexOf9 = true
+    for (let i = message.length - 1; i >=0 ; i--) {
+        if(message[i] != '9'){
+            var stMessage = message.substring(0, i + 1);
+            break; 
         }
     }
-    let stMessage = message.substring(0, index)
     return iota.utils.fromTrytes(stMessage)
 }
 
