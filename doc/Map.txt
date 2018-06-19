@@ -22,22 +22,22 @@ C:  Rau: 070                    F:  Rau: 030
 3. C=>E:    Rau: 30
             Cu: 30
 
-4. D=>E:    Rau(A): 20
-            Rau(B): 10
-            Cu(B): 30        
+4. D=>E:    Rau(A1): 20
+            Rau(B1): 10
+            Cu(B2): 30        
 
-5. E=>F:    Rau: 40 : A:15 C:25
+5. E=>F:    Rau: 40 : D1:15 C1:25
 
-6. E=>G:    Rau: 10 : A:5 B:5
-            Cu: 30  : C: 20 D:10 
+6. E=>G:    Rau: 10 : D1:5 D2:5
+            Cu: 30  : C2:20 D3:10 
 
-7. E=>H:    Rau: 10 : A:5 B:5
+7. E=>H:    Rau: 10 : D1:5 D2:5
 
-8. F=>G:    Rau(A): 10 
+8. F=>G:    Rau(B5.E1): 10 
 
-9. D=>G:    Rau(B): 10
+9. D=>G:    Rau(B1): 10
 
-10. D=>H:   Cu(A): 20    
+10. D=>H:   Cu(A2): 20
 
 ----------------SUPPLY PRODUCT-----------------
 

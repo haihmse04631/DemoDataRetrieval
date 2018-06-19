@@ -1,9 +1,8 @@
-const MSG = require('./msg')
 const IOTA = require('iota.lib.js')
 const iota = new IOTA({
     provider: 'http://localhost:14700'
 })
-const msg = new MSG();
+
 
 function BUNDLE() {
     /**
@@ -12,7 +11,7 @@ function BUNDLE() {
      * @param {trytes-encode senderSeed} senderSeed 
      * @param {address} senderAddress 
      * @param {address} receiverAddress 
-     * @param {Object} data 
+     * @param {JSON} data 
      * @param {int} depth 
      * @param {int} minWeightMagnitude 
      */
@@ -21,41 +20,33 @@ function BUNDLE() {
             var messageInput = [];
             var messageOutput = [];
             var transfers = [];
+            var msgInput = [];
+            var msgOutput = [];
             // create msg Object
             for (let i = 0; i < data.length; i++) {
-                var msgInput = {
-                    type: 'input',
-                    preHash: data[i].preHash,
-                }
+                msgInput.push({
+                    "type": "input",                    
+                    "preHash": data[i].preHash,
+                })
 
-                var msgOutput = {
-                    type: 'output',
-                    index: i,
-                    product: data[i].product
-                }
+                msgOutput.push({
+                    "type": "output",
+                    "index": i,                    
+                    "product": data[i].product
+                })
             }
+
             //create message
             for (let i = 0; i < data.length; i++) {
-                msg.toMessage(msgInput, (error, data) => {
-                    if (error) {
-                        console.log(error);
-                    } else {
-                        messageInput[i] = iota.utils.toTrytes(data);
-                    }
-                })
-
-                msg.toMessage(msgOutput, (error, data) => {
-                    if (error) {
-                        console.log(error);
-                    } else {
-                        messageOutput[i] = iota.utils.toTrytes(data);
-                    }
-                })
+                messageInput[i] = iota.utils.toTrytes(JSON.stringify(msgInput[i]));
+                messageOutput[i] = iota.utils.toTrytes(JSON.stringify(msgOutput[i]));
             }
+
             //push input to transfers
             for (let index = 0; index < data.length; index++) {
                 transfers.push({
                     value: 0,
+                    tag: iota.utils.toTrytes(data[index].tag),
                     address: senderAddress,
                     message: messageInput[index]
                 })
@@ -64,6 +55,7 @@ function BUNDLE() {
             for (let index = 0; index < data.length; index++) {
                 transfers.push({
                     value: 0,
+                    tag: iota.utils.toTrytes(data[index].tag),
                     address: receiverAddress,
                     message: messageOutput[index]
                 })
@@ -73,14 +65,15 @@ function BUNDLE() {
                 if (error) {
                     return callback(error);
                 } else {
-                    return callback(null,success);
+                    return callback(null, success);
                 }
             })
         } catch (err) {
-            return callback(error);
+            return callback(err);
         }
 
     }
+
 }
 
 module.exports = BUNDLE;
