@@ -41,7 +41,34 @@ utility.prototype.formatAndDecodeMessage = function (message) {
     return iota.utils.fromTrytes(stMessage)
 }
 
+/**
+ * 
+ * @param {String} address 
+ * @returns String message of each transaction
+ */
+utility.prototype.getAllMessageFromAddress = function(address){
 
+    var searchObject = {
+        'addresses' : [address]
+    }
+
+    iota.api.findTransactionObjects(searchObject, function(error, transactions){
+        if(error){
+            console.log(error);
+        }else{
+            transactions.forEach(element => {
+                var signatureMess = element.signatureMessageFragment;
+                for (let i = signatureMess.length - 1; i >=0 ; i--) {
+                    if(signatureMess[i] != '9'){
+                        var stMessage = signatureMess.substring(0, i + 1);
+                        break; 
+                    }
+                }
+                console.log(iota.utils.fromTrytes(stMessage) + ` - value ${element.value}`);
+            });
+        }
+    })
+}
 
 
 module.exports = utility

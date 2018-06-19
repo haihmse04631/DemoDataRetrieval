@@ -118,10 +118,8 @@ function getAllTransfer(address){
 }
 //dataRetrieval(address2)
 //getBundle(`JJAHMJFVHXPI9SFYXPCZNWTOOFGGQAUKCMCCHJEELLQGJFWFPONCDEXC9UIRNAJQNFGYCMRUMCAZQG999`)
-//getAllTransfer(address)
-var st = util.formatMessage(`ABC9999ADAD99ADASDWK9WEW999999999A9999999999`)
-console.log(st);
-
+util.getAllMessageFromAddress(address)
+//getAccountData(seed)
 
 
 
