@@ -33,33 +33,33 @@ function getHistory(hash, callback) {
             let msg = JSON.parse(toMessage(txn[0].signatureMessageFragment));
             switch (msg.type) {
                 case "input":
-                        if (msg.preHash === "") {
-                            return callback(null,history);
-                        }else{
-                            history.unshift(msg.preHash);
-                            getHistory(msg.preHash);
-                        }
+                    if (msg.preHash === "") {
+                        return callback(null, history);
+                    } else {
+                        history.unshift(msg.preHash);
+                        getHistory(msg.preHash);
+                    }
                     break;
                 case "output":
-                        getHistory(iota.api.getBundle(txn[0],(error,bundle)=>{
-                            if (error) {
-                                return callback(error);
-                            } else {
-                                getHistory(bundle[msg.index].hash);
-                            }
-                        }))
+                    getHistory(iota.api.getBundle(txn[0], (error, bundle) => {
+                        if (error) {
+                            return callback(error);
+                        } else {
+                            getHistory(bundle[msg.index].hash);
+                        }
+                    }))
                     break;
                 default:
-                return callback(new Error("Type Error!"));                    
+                    return callback(new Error("Type Error!"));
             }
         }
     })
 }
 
 
-getHistory(hash,(error,history)=>{    
+getHistory(hash, (error, history) => {
     if (error) {
-        console.log(error);        
+        console.log(error);
     } else {
         history.forEach(element => {
             console.log(element);

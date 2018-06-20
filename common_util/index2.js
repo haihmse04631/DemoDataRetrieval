@@ -174,21 +174,21 @@ data = [
 
 data = [
     {
-        "preHash": "9EHWNOUEDO9EAKBBBSMGOWJSETMOLGCADB9PZOHSRALHBWLRQBZMRGGOLQBTDGPIGYQO9AKIGBBRTV999",
+        "preHash": "CFIPJQRUGZZCVVSJSO9YDCJSCUMSGEZDCOCNRMXIAAMHWEEKJIWQIFRBMQLPPJKWLWOXTYK9EJTTFK999",
         "product": {
             "name": "Rau",
             "amount": 20
         }
     },
     {
-        "preHash": "YWYOTEYFBQMIPTRQSWIFAHBXATDEFOORQVECTXGHLUYXAOBRKXPSZODWOJPZK9IORXJCT9ZQBM9PBZ999",
+        "preHash": "LPKRQLBKXYBLGPSNGFUVCHUOVXQXJNFLWESVAVRSNALKTJOVROSRFZKYUCMOVNEVFIHELVWFLGZBLT999",
         "product": {
             "name": "Rau",
             "amount": 10
         }
     },
     {
-        "preHash": "GLMHUDTBMSXZMURUDMDTV9ZOWPQBGQ9FLHFCRNZOJGZJXVGGHKSJNHGJKFXPLGXEYWWYZTRTUEBGBK999",
+        "preHash": "OSHBCDKWFMAFXIJLIVNHRLWEBHQLUPCTZETMBAUATJVEUWXZJK9PCEQ9HSMYPSJB9ZOCFNSRQHOAYA999",
         "product": {
             "name": "Cu",
             "amount": 30
@@ -205,18 +205,18 @@ data = [
 // });
 
 // --------------------------------------------------------------------------
-// BUNDLE 5. E=>F:    Rau: 40 : D1:15 C1:25
+// BUNDLE 5. E=>F:    Rau: 40 : D4:15 C3:25
 
 data = [
     {
-        "preHash": "SISSOQWBZQIKTDYAUJAVOYLRMTKECMUVQEHGXBGVJGP9JMYNSSCCETOOJGMHVNIFTBSYYUMYAZOHT9999",
+        "preHash": "BAVGWOCS9SWCWEXZAXCSJYAXXQN9SDGORSPKXPDKFUSDIOAPV9IRZXWSWGTENSGFSAVSCKYFCWNLT9999",
         "product": {
             "name": "Rau",
             "amount": 15
         }
     },   
     {
-        "preHash": "VKVQNACGQIHM9NBDHTSMHSGRZFUMBCODAIQRBICKBWXPK9TG9ULRSPFIGSESMNODXVKHGYGODKORXI999",
+        "preHash": "PMCRTNDSXTQINFEOCZDWDSGNBINEQRCWJGVCTISSWVBCYMVQSIRMOGGNGKVCKLHBHHNTVLPJYLBFIW999",
         "product": {
             "name": "Rau",
             "amount": 25
@@ -233,32 +233,32 @@ data = [
 // });
 
 // --------------------------------------------------------------------------
-// BUNDLE 6. E=>G:   Rau: 10 : D1:5 D2:5
-//                   Cu: 30  : C2:20 D3:10 
+// BUNDLE 6. E=>G:   Rau: 10 : D4:5 D5:5
+//                   Cu: 30  : C4:20 D6:10 
 data = [
     {
-        "preHash": "SISSOQWBZQIKTDYAUJAVOYLRMTKECMUVQEHGXBGVJGP9JMYNSSCCETOOJGMHVNIFTBSYYUMYAZOHT9999",
+        "preHash": "BAVGWOCS9SWCWEXZAXCSJYAXXQN9SDGORSPKXPDKFUSDIOAPV9IRZXWSWGTENSGFSAVSCKYFCWNLT9999",
         "product": {
             "name": "Rau",
             "amount": 5
         }
     },   
     {
-        "preHash": "GKQOAWGMELYPLVIFS9VX9QKTAEYBVMNQVEXE9BFYOROQNNQJHUSNQWBYWZ9YEJCJGU9ODKEICHBQSH999",
+        "preHash": "MQYAIQTSHTHEGRTYYA9YIYBFEKITERPEQJOIUJWUQMGGXOTARGKXNZQUNQHT9TJLEZWPSNVH9GPZEA999",
         "product": {
             "name": "Rau",
             "amount": 5
         }
     },
     {
-        "preHash": "OQMXDQSOVXPIXMXLWITSHEWOVCSUEXRYPIPGRMINDDY9EFIRDUW9PS9MHPAUCAKFFARXJZPLLWGAQN999",
+        "preHash": "YTOKMISKV9VOP9SE9HVCFUQTDHCIBTBQMTZUM9VFBVGRSYEFOJHYBMWMT9HTWEIZLXRNTNNZPATUDN999",
         "product": {
             "name": "Cu",
             "amount": 20
         }
     },   
     {
-        "preHash": "DHOKKFYNEBXNZXTEWUJSWEKVB9MWC9XYMXYZNQQT9U9RRZWITFESWKRQZTQBPHDX9MEUEBHGXFBMAG999",
+        "preHash": "AUSEYKIVVPCLJJLTRRQHDSKFNJXHRN9NOWNNBMLNCGCZPKKRVXYULROLQJIZBXBKCEBWEXIZJBTVBO999",
         "product": {
             "name": "Cu",
             "amount": 10
@@ -266,13 +266,13 @@ data = [
     }
 ]
 
-// bundle.sendBundle(seedE,walletE[0],walletG[0],data,3,9,(error,success)=>{
-//     if (error) {
-//         console.log(error);        
-//     } else {
-//         console.log(success);        
-//     }
-// });
+bundle.sendBundle(seedE,walletE[0],walletG[0],data,3,9,(error,success)=>{
+    if (error) {
+        console.log(error);        
+    } else {
+        console.log(success);        
+    }
+});
 // --------------------------------------------------------------------------
 // BUNDLE 7. E=>H:    Rau: 10 : D1:5 D2:5
 

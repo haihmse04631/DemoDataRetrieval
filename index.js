@@ -1,4 +1,5 @@
 const IOTA = require('iota.lib.js')
+//const iota = new IOTA({ provider: 'http://10.1.41.28:8080' })
 const iota = new IOTA({ provider: 'http://localhost:14700' })
 const UTIL = require('./common_util/utility.js')
 const util = new UTIL()
@@ -8,7 +9,7 @@ const util = new UTIL()
 //     output: process.stdout
 // })
 
-// iota.api.getNodeInfo(function(error, success) {
+// iota.api.getNodeInfo(function (error, success) {
 //     if (error) {
 //         console.error(error);
 //     } else {
@@ -18,7 +19,7 @@ const util = new UTIL()
 
 var seed = `VERTAWNTFULJCUNRZXPVBHQKBTSOOPPPNRBQ9AUYDRDFPVIJBIOBLNLNS9GGVUHXIJCHTCVOQQGVRY9IH`
 var seed2 = `KNEPVOCHZPOWAPIBPGFWCFA9OCZLWPTLYB9JGFKKAVX9HYXBOBIEAJSPYDHBUSQEBLVVYROZPGYDQGAXP`
-var address = `OJXBFNYDMJITDUNA9AINIQLVQCGQCGUVNNTSRJYZDZMGGZANBXT9GDVGGADOCIRYM9HYBRSNVV9QAKDQAWLVQK9MAW`
+var address = `RWSFROOGHEWVENTVKPUXC9PACAOKYKNWO9HDLMXKTDRWMADJIVVYUQZRXWUQDLQYEUZXYBVOFNHGRERGA`
 var address2 = `XHTURPRECWLRWRYTZCGFA9XTIRFNWDQKXZUWLBMFZTIXSJLGVDWFAGUDKLV9HIAKDNXNWMPMCYC9VOLCC`
 
 // var accountData = util.getAccountData(seed)
@@ -91,37 +92,30 @@ function dataRetrieval(seed) {
     })
 }
 
-function getBundle(transaction) {
-    iota.api.getBundle(transaction, function (error, data) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log(data);
+function getTransactionInfor(hash) {
 
-        }
-    })
 }
 
 
-function getAllTransfer(address) {
-    var searchObject = {
-        'addresses': [address]
-    }
+// const promise = util.getAllMessageFromAddress(address)
+// promise.then(function(result){
+//     console.log(result);
+// }).catch(function(error){
+//     console.log(error);
+// })
 
-    iota.api.findTransactionObjects(searchObject, function (error, success) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log(success);
-        }
-    })
-}
+//getTransactionInfor([`CFIPJQRUGZZCVVSJSO9YDCJSCUMSGEZDCOCNRMXIAAMHWEEKJIWQIFRBMQLPPJKWLWOXTYK9EJTTFK999`])
 
+// const promise2 = util.getPreHashInfor(`OSHBCDKWFMAFXIJLIVNHRLWEBHQLUPCTZETMBAUATJVEUWXZJK9PCEQ9HSMYPSJB9ZOCFNSRQHOAYA999`)
+// promise2.then(function(result){
+//     console.log(result);
+// }).catch(function(error){
+//     console.log(error);
+// })
 
-util.getAllMessageFromAddress(address, (messages) => {
-    console.log(messages);
-})
+util.getAllInforFromAddress2(address)
 
+//util.getPreHashInfor(OSHBCDKWFMAFXIJLIVNHRLWEBHQLUPCTZETMBAUATJVEUWXZJK9PCEQ9HSMYPSJB9ZOCFNSRQHOAYA999)
 
 
 
